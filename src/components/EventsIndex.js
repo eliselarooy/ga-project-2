@@ -14,6 +14,7 @@ const EventsIndex = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    getData();
   };
 
   const handleChange = (e) => {
@@ -23,21 +24,21 @@ const EventsIndex = () => {
 
   console.log('form data', formData);
 
-  React.useEffect(() => {
-    const getData = async () => {
-      try {
-        const {
-          data: { results },
-        } = await getAllEvents({ ...formData });
-        setEvents(results);
-        console.log(results);
-      } catch (err) {
-        console.error(err);
-      }
-    };
+  const getData = async () => {
+    try {
+      const {
+        data: { results },
+      } = await getAllEvents({ ...formData });
+      setEvents(results);
+      console.log(results);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
+  React.useEffect(() => {
     getData();
-  }, [formData]);
+  }, []);
 
   console.log(events);
 
@@ -46,10 +47,10 @@ const EventsIndex = () => {
       <p>Events page</p>
       <nav className="menu">
         <p className="menu-heading">Filter search</p>
-        <div class="menu-block">
-          <p class="control has-icons-left">
+        <div className="menu-block">
+          <p className="control has-icons-left">
             <input
-              class="input"
+              className="input"
               type="text"
               placeholder="Search"
               name="keyword"
@@ -57,7 +58,7 @@ const EventsIndex = () => {
               value={formData.keyword}
             />
             <input
-              class="input"
+              className="input"
               type="date"
               placeholder="Search"
               name="minDate"
