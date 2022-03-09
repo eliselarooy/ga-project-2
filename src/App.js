@@ -6,12 +6,13 @@ import Navbar from './components/Navbar';
 import EventsIndex from './components/EventsIndex';
 
 function App() {
+  console.log(process.env.REACT_APP_API_KEY);
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/events" element={<EventsIndex />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/events' element={<EventsIndex />} />
       </Routes>
     </BrowserRouter>
   );
