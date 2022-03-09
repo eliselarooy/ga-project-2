@@ -5,3 +5,7 @@ const baseUrl = `https://www.skiddle.com/api/v1/events/search/?api_key=${process
 export const getAllEvents = () => {
   return axios.get(`${baseUrl}`);
 };
+
+export const getSpecialEvents = () => {
+  return axios.get(`${baseUrl}&specialFeatured=1`);
+};
