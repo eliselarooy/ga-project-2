@@ -17,7 +17,22 @@ const EventsIndex = () => {
     getData();
   }, []);
 
-  return <p>Events page</p>;
+  return (
+    <>
+      <p>Events page</p>
+      <div className="container">
+        <div className="columns is-multiline">
+          {!events ? (
+            <p>Loading</p>
+          ) : (
+            events.results.map((event) => (
+              <h3 key={event.id}>{event.eventname}</h3>
+            ))
+          )}
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default EventsIndex;
