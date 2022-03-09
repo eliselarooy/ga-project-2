@@ -1,5 +1,6 @@
 import React from 'react';
 import { getSpecialEvents } from '../lib/api';
+import EventCard from './EventCard';
 
 const initialUserSearch = {
   event: '',
@@ -61,12 +62,13 @@ function Home() {
         </div>
 
         <div className='container'>
+          <h2 className='title has-text-centered'>Featured Events</h2>
           <div className='columns is-multiline'>
             {!specialEvents ? (
               <p>Loading...</p>
             ) : (
-              specialEvents.results.map((event) => (
-                <EventCard {...specialEvents} />
+              specialEvents.map((event) => (
+                <EventCard key={event.id} {...event} />
               ))
             )}
           </div>
