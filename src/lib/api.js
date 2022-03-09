@@ -7,5 +7,5 @@ export const getAllEvents = () => {
 };
 
 export const getSpecialEvents = () => {
-  return axios.get(`${baseUrl}&specialFeatured=1`);
+  return axios.get(`${baseUrl}&specialFeatured=1&limit=3`);
 };
