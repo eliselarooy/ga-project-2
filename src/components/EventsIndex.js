@@ -1,21 +1,27 @@
 import React from 'react';
 import { getAllEvents } from '../lib/api';
 
+import EventCard from './EventCard';
+
 const EventsIndex = () => {
   const [events, setEvents] = React.useState(null);
 
   React.useEffect(() => {
     const getData = async () => {
       try {
-        const { data } = await getAllEvents();
-        setEvents(data);
-        console.log(data);
+        const {
+          data: { results },
+        } = await getAllEvents();
+        setEvents(results);
+        console.log(results);
       } catch (err) {
         console.error(err);
       }
     };
     getData();
   }, []);
+
+  console.log(events);
 
   return (
     <>
@@ -25,9 +31,7 @@ const EventsIndex = () => {
           {!events ? (
             <p>Loading</p>
           ) : (
-            events.results.map((event) => (
-              <h3 key={event.id}>{event.eventname}</h3>
-            ))
+            events.map((event) => <EventCard key={event.id} {...event} />)
           )}
         </div>
       </div>
