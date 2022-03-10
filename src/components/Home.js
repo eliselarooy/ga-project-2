@@ -1,19 +1,29 @@
 import React from 'react';
 import { getSpecialEvents } from '../lib/api';
 import EventCard from './EventCard';
+import { useNavigate } from 'react-router-dom';
+
+const today = new Date().toISOString().slice(0, 10);
 
 const initialUserSearch = {
   event: '',
-  date: '',
+  date: today,
   location: '',
 };
 
 function Home() {
   const [userSearch, setUserSearch] = React.useState(initialUserSearch);
   const [specialEvents, setSpecialEvents] = React.useState(null);
+  const navigate = useNavigate();
 
   function handleSearchChange(e) {
     setUserSearch({ ...userSearch, [e.target.name]: e.target.value });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log('userSearch: ', userSearch);
+    navigate('/events', { ...userSearch });
   }
 
   React.useEffect(() => {
@@ -31,7 +41,7 @@ function Home() {
   }, []);
 
   console.log(userSearch);
-  console.log(specialEvents);
+  console.log('Special Events:', specialEvents);
 
   return (
     <section className='hero is-fullheight-with-navbar is-primary'>
@@ -77,7 +87,12 @@ function Home() {
 
         <div className='columns is-centered'>
           <div className='column is-half is-centered'>
-            <button className='button is-primary is-rounded'>Search</button>
+            <button
+              className='button is-primary is-rounded'
+              onClick={handleSubmit}
+            >
+              Search
+            </button>
           </div>
         </div>
       </div>
