@@ -1,17 +1,20 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { getSingleEvent } from '../lib/api';
 import Map, { Marker } from 'react-map-gl';
-
+import { useNavigate } from 'react-router-dom';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 function EventShow() {
   const { eventId } = useParams();
   const [eventData, setEventData] = React.useState();
-  console.log('Event ID: ', eventId);
+  const navigate = useNavigate();
 
   const MAPBOX_TOKEN = `${process.env.REACT_APP_ACCESS_TOKEN}`;
-  console.log('MAPBOX_TOKEN: ', MAPBOX_TOKEN);
+
+  function handleReturn() {
+    navigate(-1);
+  }
 
   React.useEffect(() => {
     async function getEventData() {
@@ -29,54 +32,62 @@ function EventShow() {
   }, []);
 
   return (
-    <section className="section">
+    <section className='section'>
       {!eventData ? (
         <p>Loading...</p>
       ) : (
         <>
-          <section className="section">
-            <div className="columns has-text-centered">
-              <div className="column">
+          <div className='container is-fluid has-text-right mt-2'>
+            <button
+              className='button is-primary is-rounded'
+              onClick={handleReturn}
+            >
+              Return to Search
+            </button>
+          </div>
+          <section className='section has-background-white'>
+            <div className='columns has-text-centered'>
+              <div className='column'>
                 <figure>
                   <img
-                    className="show-image"
+                    className='show-image'
                     src={eventData[0].largeimageurl}
                     alt={eventData[0].eventname}
                   />
                 </figure>
               </div>
-              <div className="column content is-medium">
-                <h2 className="title has-text-centered">
+              <div className='column content is-medium'>
+                <h2 className='title has-text-centered'>
                   {eventData[0].eventname}
                 </h2>
                 <p>{eventData[0].description}</p>
-                <div className="columns has-text-centered">
-                  <div className="column">
-                    <p className="subtitle">
-                      <span className="icon">
-                        <i className="fas fa-credit-card"></i>
+                <div className='columns has-text-centered'>
+                  <div className='column'>
+                    <p className='subtitle'>
+                      <span className='icon'>
+                        <i className='fas fa-credit-card'></i>
                       </span>
                       <span> Price: {eventData[0].entryprice}</span>
                     </p>
 
-                    <p className="subtitle">
-                      <span className="icon">
-                        <i className="fas fa-user"></i>
+                    <p className='subtitle'>
+                      <span className='icon'>
+                        <i className='fas fa-user'></i>
                       </span>
                       <span> Minimum Age: {eventData[0].minage}</span>
                     </p>
                   </div>
 
-                  <div className="column">
-                    <p className="subtitle">
-                      <span className="icon">
-                        <i className="fas fa-calendar"></i>
+                  <div className='column'>
+                    <p className='subtitle'>
+                      <span className='icon'>
+                        <i className='fas fa-calendar'></i>
                       </span>
                       <span> Date: {eventData[0].date}</span>
                     </p>
-                    <p className="subtitle">
-                      <span className="icon">
-                        <i className="fas fa-clock"></i>
+                    <p className='subtitle'>
+                      <span className='icon'>
+                        <i className='fas fa-clock'></i>
                       </span>
                       <span>
                         {' '}
@@ -89,10 +100,10 @@ function EventShow() {
             </div>
           </section>
 
-          <section className="section has-background-dark">
-            <div className="map-show container has-background-white">
-              <div className="columns has-text-centered">
-                <div className="column is-6">
+          <section className='section has-background-dark'>
+            <div className='map-show container has-background-white'>
+              <div className='columns has-text-centered'>
+                <div className='column is-6 m-5'>
                   <Map
                     initialViewState={{
                       longitude: eventData[0].venue.longitude,
@@ -100,22 +111,26 @@ function EventShow() {
                       zoom: 14,
                     }}
                     style={{ width: 600, height: 400 }}
-                    mapStyle="mapbox://styles/mapbox/streets-v9"
+                    mapStyle='mapbox://styles/mapbox/streets-v9'
                     mapboxAccessToken={MAPBOX_TOKEN}
                   >
                     <Marker
                       longitude={eventData[0].venue.longitude}
                       latitude={eventData[0].venue.latitude}
-                      color="red"
+                      color='red'
                     />
                   </Map>
                 </div>
-                <div className="column is-6">
-                  <h3 className="title">Venue:</h3>
-                  <p>{eventData[0].venue.name}</p>
-                  <p>{eventData[0].venue.address}</p>
-                  <p>{eventData[0].venue.town}</p>
-                  <p>{eventData[0].venue.postcode}</p>
+                <div className='column is-6 mt-6'>
+                  <h3 className='title'>📍 {eventData[0].venue.name}</h3>
+                  <p className='subtitle'>{eventData[0].venue.address}</p>
+                  <p
+                    className='
+                    subtitle'
+                  >
+                    {eventData[0].venue.town}
+                  </p>
+                  <p className='subtitle'>{eventData[0].venue.postcode}</p>
                 </div>
               </div>
             </div>
