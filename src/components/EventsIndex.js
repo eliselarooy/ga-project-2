@@ -5,10 +5,6 @@ import EventCard from './EventCard';
 
 const today = new Date().toISOString().slice(0, 10);
 
-const aYearFromNow = new Date();
-aYearFromNow.setFullYear(aYearFromNow.getFullYear() + 1);
-const nextYear = aYearFromNow.toISOString().slice(0, 10);
-
 const EventsIndex = ({ event, date, location }) => {
   const [events, setEvents] = React.useState(null);
   const [formData, setFormData] = React.useState({
@@ -57,92 +53,109 @@ const EventsIndex = ({ event, date, location }) => {
   }, [formData.limit]);
 
   return (
-    <>
-      <p>Events page</p>
-      <nav className='menu'>
-        <p className='menu-heading'>Filter search</p>
-        <div className='menu-block'>
-          <p className='control has-icons-left'>
-            <label className='label'>Search</label>
-            <input
-              className='input'
-              type='text'
-              placeholder='Search'
-              name='keyword'
-              onChange={handleChange}
-              value={formData.keyword}
-            />
-            <label className='label'>Min Date</label>
-            <input
-              className='input'
-              type='date'
-              name='minDate'
-              onChange={handleChange}
-              value={formData.minDate}
-            />
-            <select name='eventcode' id='evenType' onChange={handleChange}>
-              <option name='eventcode' value=''>
-                NONE SELECTED
-              </option>
-              <option name='eventcode' value='FEST'>
-                FESTIVAL
-              </option>
-              <option name='eventcode' value='LIVE'>
-                LIVE MUSIC
-              </option>
-              <option name='eventcode' value='CLUB'>
-                CLUBBING/DANCE MUSIC
-              </option>
-              <option name='eventcode' value='DATE'>
-                DATING EVENT
-              </option>
-              <option name='eventcode' value='THEATRE'>
-                THEATRE
-              </option>
-              <option name='eventcode' value='COMEDY'>
-                COMEDY
-              </option>
-              <option name='eventcode' value='EXHIB'>
-                EXHIBITION
-              </option>
-              <option name='eventcode' value='KIDS'>
-                KIDS/FAMILY
-              </option>
-              <option name='eventcode' value='BARPUB'>
-                BAR/PUB
-              </option>
-              <option name='eventcode' value='LGB'>
-                GAY/LESBIAN
-              </option>
-              <option name='eventcode' value='SPORT'>
-                SPORT
-              </option>
-              <option name='eventcode' value='ARTS'>
-                THE ARTS
-              </option>
-            </select>
-
-            <button
-              type='submit'
-              className='button is-fullwidth'
-              onClick={handleSubmit}
-            >
-              Search
-            </button>
-          </p>
+    <div className="container mt-6">
+      <div className="columns">
+        <div className="column notification">
+          <nav className="menu">
+            <p className="menu-heading title is-4">Filter search</p>
+            <div className="menu-block">
+              <div className="field block">
+                <label className="label">Search keyword</label>
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Search"
+                  name="keyword"
+                  onChange={handleChange}
+                  value={formData.keyword}
+                />
+              </div>
+              <div className="field block">
+                <label className="label">Date</label>
+                <input
+                  className="input"
+                  type="date"
+                  name="minDate"
+                  onChange={handleChange}
+                  value={formData.minDate}
+                />
+              </div>
+              <div className="field block ">
+                <label className="label">Event type</label>
+                <select
+                  className="input"
+                  name="eventcode"
+                  id="eventType"
+                  onChange={handleChange}
+                >
+                  <option name="eventcode" value="">
+                    ALL
+                  </option>
+                  <option name="eventcode" value="FEST">
+                    FESTIVAL
+                  </option>
+                  <option name="eventcode" value="LIVE">
+                    LIVE MUSIC
+                  </option>
+                  <option name="eventcode" value="CLUB">
+                    CLUBBING/DANCE MUSIC
+                  </option>
+                  <option name="eventcode" value="DATE">
+                    DATING
+                  </option>
+                  <option name="eventcode" value="THEATRE">
+                    THEATRE
+                  </option>
+                  <option name="eventcode" value="COMEDY">
+                    COMEDY
+                  </option>
+                  <option name="eventcode" value="EXHIB">
+                    EXHIBITION
+                  </option>
+                  <option name="eventcode" value="KIDS">
+                    KIDS/FAMILY
+                  </option>
+                  <option name="eventcode" value="BARPUB">
+                    BAR/PUB
+                  </option>
+                  <option name="eventcode" value="LGB">
+                    GAY/LESBIAN
+                  </option>
+                  <option name="eventcode" value="SPORT">
+                    SPORT
+                  </option>
+                  <option name="eventcode" value="ARTS">
+                    THE ARTS
+                  </option>
+                </select>
+              </div>
+              <div className="field block">
+                <button
+                  type="submit"
+                  className="button is-fullwidth"
+                  onClick={handleSubmit}
+                >
+                  Update results
+                </button>
+              </div>
+            </div>
+          </nav>
         </div>
-      </nav>
-      <div className='container'>
-        <div className='columns is-multiline'>
-          {!events ? (
-            <p>Loading</p>
-          ) : (
-            events.map((event) => <EventCard key={event.id} {...event} />)
-          )}
+        <div className="column"></div>
+        <div className="container">
+          <div className="columns is-multiline">
+            {!events ? (
+              <p>Loading</p>
+            ) : (
+              events.map((event) => <EventCard key={event.id} {...event} />)
+            )}
+          </div>
+          <button className="button" onClick={increaseLimit}>
+            Load more events
+          </button>
         </div>
       </div>
-      <button onClick={increaseLimit}>Load more events</button>
-    </>
+    </div>
   );
 };
 
