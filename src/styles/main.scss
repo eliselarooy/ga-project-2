@@ -1,1 +1,32 @@
 @import '~bulma/bulma.sass';
+
+.card {
+  height: 100%;
+  border: 2px solid #00d1b2;
+}
+
+.card-header {
+  height: 15%;
+}
+
+.card-image {
+  width: 100%;
+}
+
+.hero {
+  background-image: url('https://happygreenacres.com/wp-content/uploads/2017/07/events-page-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.show-image {
+  border-radius: 8px;
+  border: 2px solid #00d1b2;
+  margin: 0 0 0 40px;
+  height: 100%;
+}
+
+.container .has-background-info {
+  border: 2px solid #00d1b2;
+}

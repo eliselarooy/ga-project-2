@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const EventCard = ({
   uniquelistingidentifier,
   eventname,
-  largeimageurl,
+  xlargeimageurl,
   date,
   venue: { town },
 }) => {
@@ -13,14 +13,16 @@ const EventCard = ({
       <Link to={`/events/${uniquelistingidentifier}`}>
         <div className='card'>
           <div className='card-header'>
-            <h3 className='card-header-title'>{eventname}</h3>
+            <h3 className='card-header-title is-centered'>{eventname}</h3>
           </div>
-          <div className='card-image'>
-            <img src={largeimageurl} alt='' />
+          <div className='card-image has-text-centered'>
+            <figure className='is-inline-block'>
+              <img src={xlargeimageurl} alt='event image' />
+            </figure>
           </div>
           <div className='card-content'>
-            <p>{date}</p>
-            <p>{town}</p>
+            <p className='subtitle is-6'>📅 {date}</p>
+            <p className='title is-6'>📍 {town}</p>
           </div>
         </div>
       </Link>

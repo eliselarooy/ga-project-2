@@ -11,9 +11,9 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/events" element={<EventsIndex />} />
-        <Route path="/events/:eventId" element={<EventShow />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/events' element={<EventsIndex />} />
+        <Route path='/events/:eventId' element={<EventShow />} />
       </Routes>
     </BrowserRouter>
   );
