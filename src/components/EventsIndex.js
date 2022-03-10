@@ -5,16 +5,17 @@ import EventCard from './EventCard';
 
 const today = new Date().toISOString().slice(0, 10);
 
-const aYearFromNow = new Date();
-aYearFromNow.setFullYear(aYearFromNow.getFullYear() + 1);
-const nextYear = aYearFromNow.toISOString().slice(0, 10);
+// const aYearFromNow = new Date();
+// aYearFromNow.setFullYear(aYearFromNow.getFullYear() + 1);
+// const nextYear = aYearFromNow.toISOString().slice(0, 10);
 
 const EventsIndex = () => {
   const [events, setEvents] = React.useState(null);
   const [formData, setFormData] = React.useState({
     keyword: '',
     minDate: today,
-    maxDate: nextYear,
+    // maxDate: nextYear,
+    limit: 20,
   });
 
   const handleSubmit = (e) => {
@@ -25,6 +26,12 @@ const EventsIndex = () => {
   const handleChange = (e) => {
     e.preventDefault();
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const increaseLimit = (e) => {
+    e.preventDefault();
+    setFormData({ ...formData, limit: formData.limit + 20 });
+    console.log('form data 1st', formData);
   };
 
   console.log('form data', formData);
@@ -43,7 +50,7 @@ const EventsIndex = () => {
 
   React.useEffect(() => {
     getData();
-  }, []);
+  }, [formData.limit]);
 
   return (
     <>
@@ -69,15 +76,15 @@ const EventsIndex = () => {
               onChange={handleChange}
               value={formData.minDate}
             />
-            <label className="label">Max Date</label>
-
+            {/* <label className="label">Max Date</label>
+            
             <input
               className="input"
               type="date"
               name="maxDate"
               onChange={handleChange}
               value={formData.maxDate}
-            />
+            /> */}
             <button
               type="submit"
               className="button is-fullwidth"
@@ -97,6 +104,7 @@ const EventsIndex = () => {
           )}
         </div>
       </div>
+      <button onClick={increaseLimit}>Load more events</button>
     </>
   );
 };
