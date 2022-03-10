@@ -5,11 +5,16 @@ import EventCard from './EventCard';
 
 const today = new Date().toISOString().slice(0, 10);
 
+const aYearFromNow = new Date();
+aYearFromNow.setFullYear(aYearFromNow.getFullYear() + 1);
+const nextYear = aYearFromNow.toISOString().slice(0, 10);
+
 const EventsIndex = () => {
   const [events, setEvents] = React.useState(null);
   const [formData, setFormData] = React.useState({
     keyword: '',
     minDate: today,
+    maxDate: nextYear,
   });
 
   const handleSubmit = (e) => {
@@ -40,34 +45,42 @@ const EventsIndex = () => {
     getData();
   }, []);
 
-  console.log(events);
-
   return (
     <>
       <p>Events page</p>
-      <nav className='menu'>
-        <p className='menu-heading'>Filter search</p>
-        <div className='menu-block'>
-          <p className='control has-icons-left'>
+      <nav className="menu">
+        <p className="menu-heading">Filter search</p>
+        <div className="menu-block">
+          <p className="control has-icons-left">
+            <label className="label">Search</label>
             <input
-              className='input'
-              type='text'
-              placeholder='Search'
-              name='keyword'
+              className="input"
+              type="text"
+              placeholder="Search"
+              name="keyword"
               onChange={handleChange}
               value={formData.keyword}
             />
+            <label className="label">Min Date</label>
             <input
-              className='input'
-              type='date'
-              placeholder='Search'
-              name='minDate'
+              className="input"
+              type="date"
+              name="minDate"
               onChange={handleChange}
               value={formData.minDate}
             />
+            <label className="label">Max Date</label>
+
+            <input
+              className="input"
+              type="date"
+              name="maxDate"
+              onChange={handleChange}
+              value={formData.maxDate}
+            />
             <button
-              type='submit'
-              className='button is-fullwidth'
+              type="submit"
+              className="button is-fullwidth"
               onClick={handleSubmit}
             >
               Search
@@ -75,8 +88,8 @@ const EventsIndex = () => {
           </p>
         </div>
       </nav>
-      <div className='container'>
-        <div className='columns is-multiline'>
+      <div className="container">
+        <div className="columns is-multiline">
           {!events ? (
             <p>Loading</p>
           ) : (
