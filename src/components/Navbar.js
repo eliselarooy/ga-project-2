@@ -14,15 +14,19 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className='navbar is-dark'>
-        <div className='container'>
-          <div className='navbar-brand'>
-            <Link to='/' className='navbar-item'>
-              Home
-            </Link>
-            <Link to='/events' className='navbar-item' {...userSearch}>
-              Events
-            </Link>
+      <nav className="navbar">
+        <div className="container">
+          <div className="navbar-brand">
+            <div className="navbar-menu">
+              <div className="navbar-end">
+                <Link to="/" className="navbar-item">
+                  Home
+                </Link>
+                <Link to="/events" className="navbar-item" {...userSearch}>
+                  Events
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </nav>

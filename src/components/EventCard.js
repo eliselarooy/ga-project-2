@@ -17,12 +17,22 @@ const EventCard = ({
           </div>
           <div className='card-image has-text-centered'>
             <figure className='is-inline-block'>
-              <img src={xlargeimageurl} alt='event image' />
+              <img src={xlargeimageurl} alt={eventname} />
             </figure>
           </div>
           <div className='card-content'>
-            <p className='subtitle is-6'>📅 {date}</p>
-            <p className='title is-6'>📍 {town}</p>
+            <p className='subtitle is-6'>
+              <span className='icon'>
+                <i className='fas fa-calendar'></i>
+              </span>
+              <span>{date}</span>
+            </p>
+            <p className='title is-6'>
+              <span className='icon'>
+                <i className='fas fa-map-pin'></i>
+              </span>
+              <span>{town}</span>
+            </p>
           </div>
         </div>
       </Link>

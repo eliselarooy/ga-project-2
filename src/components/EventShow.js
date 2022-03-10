@@ -32,7 +32,7 @@ function EventShow() {
   }, []);
 
   return (
-    <>
+    <section className='section'>
       {!eventData ? (
         <p>Loading...</p>
       ) : (
@@ -52,6 +52,7 @@ function EventShow() {
                   <img
                     className='show-image'
                     src={eventData[0].largeimageurl}
+                    alt={eventData[0].eventname}
                   />
                 </figure>
               </div>
@@ -63,16 +64,35 @@ function EventShow() {
                 <div className='columns has-text-centered'>
                   <div className='column'>
                     <p className='subtitle'>
-                      💵 Price: {eventData[0].entryprice}
+                      <span className='icon'>
+                        <i className='fas fa-credit-card'></i>
+                      </span>
+                      <span> Price: {eventData[0].entryprice}</span>
                     </p>
+
                     <p className='subtitle'>
-                      👤 Min Age: {eventData[0].minage}
+                      <span className='icon'>
+                        <i className='fas fa-user'></i>
+                      </span>
+                      <span> Minimum Age: {eventData[0].minage}</span>
                     </p>
                   </div>
+
                   <div className='column'>
-                    <p className='subtitle'>📅 Date: {eventData[0].date}</p>
                     <p className='subtitle'>
-                      🕘 Start Time: {eventData[0].openingtimes.doorsopen}
+                      <span className='icon'>
+                        <i className='fas fa-calendar'></i>
+                      </span>
+                      <span> Date: {eventData[0].date}</span>
+                    </p>
+                    <p className='subtitle'>
+                      <span className='icon'>
+                        <i className='fas fa-clock'></i>
+                      </span>
+                      <span>
+                        {' '}
+                        Start Time: {eventData[0].openingtimes.doorsopen}
+                      </span>
                     </p>
                   </div>
                 </div>
@@ -117,7 +137,7 @@ function EventShow() {
           </section>
         </>
       )}
-    </>
+    </section>
   );
 }
 
