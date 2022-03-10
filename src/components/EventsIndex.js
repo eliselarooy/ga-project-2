@@ -61,14 +61,19 @@ const EventsIndex = ({ event, date, location }) => {
             <div className="menu-block">
               <div className="field block">
                 <label className="label">Search keyword</label>
-                <input
-                  className="input"
-                  type="text"
-                  placeholder="Search"
-                  name="keyword"
-                  onChange={handleChange}
-                  value={formData.keyword}
-                />
+                <div className="control has-icons-left">
+                  <input
+                    className="input"
+                    type="text"
+                    placeholder="Search"
+                    name="keyword"
+                    onChange={handleChange}
+                    value={formData.keyword}
+                  />
+                  <span className="icon is-left">
+                    <i className="fas fa-search"></i>
+                  </span>
+                </div>
               </div>
               <div className="field block">
                 <label className="label">Date</label>
