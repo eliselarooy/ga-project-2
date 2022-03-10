@@ -45,29 +45,29 @@ const EventsIndex = () => {
   return (
     <>
       <p>Events page</p>
-      <nav className="menu">
-        <p className="menu-heading">Filter search</p>
-        <div className="menu-block">
-          <p className="control has-icons-left">
+      <nav className='menu'>
+        <p className='menu-heading'>Filter search</p>
+        <div className='menu-block'>
+          <p className='control has-icons-left'>
             <input
-              className="input"
-              type="text"
-              placeholder="Search"
-              name="keyword"
+              className='input'
+              type='text'
+              placeholder='Search'
+              name='keyword'
               onChange={handleChange}
               value={formData.keyword}
             />
             <input
-              className="input"
-              type="date"
-              placeholder="Search"
-              name="minDate"
+              className='input'
+              type='date'
+              placeholder='Search'
+              name='minDate'
               onChange={handleChange}
               value={formData.minDate}
             />
             <button
-              type="submit"
-              className="button is-fullwidth"
+              type='submit'
+              className='button is-fullwidth'
               onClick={handleSubmit}
             >
               Search
@@ -75,8 +75,8 @@ const EventsIndex = () => {
           </p>
         </div>
       </nav>
-      <div className="container">
-        <div className="columns is-multiline">
+      <div className='container'>
+        <div className='columns is-multiline'>
           {!events ? (
             <p>Loading</p>
           ) : (
