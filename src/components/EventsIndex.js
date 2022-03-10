@@ -26,8 +26,8 @@ const EventsIndex = () => {
   return (
     <>
       <p>Events page</p>
-      <div className="container">
-        <div className="columns is-multiline">
+      <div className='container'>
+        <div className='columns is-multiline'>
           {!events ? (
             <p>Loading</p>
           ) : (
