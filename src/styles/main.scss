@@ -14,10 +14,11 @@
 }
 
 .hero {
-  background-image: url('https://happygreenacres.com/wp-content/uploads/2017/07/events-page-background.jpg');
+  background-image: url('http://mercatiqueconsulting.co.za/wp-content/uploads/2016/05/events-background-03.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  height: 60vh;
 }
 
 .show-image {
@@ -29,4 +30,9 @@
 
 .container .has-background-info {
   border: 2px solid #00d1b2;
+}
+
+.map-show {
+  border: 2px solid #00d1b2;
+  border-radius: 8px;
 }

@@ -45,14 +45,13 @@ function Home() {
 
   return (
     <>
-      <section className="hero-main hero has-background-primary pb-6">
+      <section className="hero">
         <div className="hero-body">
           <div className="container">
-            <h1 className="title has-text-centered">Events Home Page</h1>
+            <h1 className="title has-text-centered is-primary">EventZ 4 U</h1>
           </div>
         </div>
-
-        <div className="box container">
+        <div className="container">
           <div className="columns">
             <div className="column">
               <input
@@ -88,7 +87,7 @@ function Home() {
           </div>
 
           <div className="columns is-centered">
-            <div className="column is-half is-centered">
+            <div className="is-half is-centered">
               <button
                 className="button is-primary is-rounded"
                 onClick={handleSubmit}
@@ -100,18 +99,16 @@ function Home() {
         </div>
       </section>
 
-      <section className="has-background-grey-lighter section">
-        <div className="container">
-          <h2 className="title has-text-centered">Featured Events</h2>
-          <div className="columns">
-            {!specialEvents ? (
-              <p>Loading...</p>
-            ) : (
-              specialEvents.map((event) => (
-                <EventCard key={event.id} {...event} />
-              ))
-            )}
-          </div>
+      <section className="container">
+        <h2 className="title has-text-centered">Featured Events</h2>
+        <div className="columns">
+          {!specialEvents ? (
+            <p>Loading...</p>
+          ) : (
+            specialEvents.map((event) => (
+              <EventCard key={event.id} {...event} />
+            ))
+          )}
         </div>
       </section>
     </>

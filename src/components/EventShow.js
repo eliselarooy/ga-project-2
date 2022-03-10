@@ -29,12 +29,12 @@ function EventShow() {
   }, []);
 
   return (
-    <>
-      <section className="section">
-        {!eventData ? (
-          <p>Loading...</p>
-        ) : (
-          <>
+    <section className="section">
+      {!eventData ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <section className="section">
             <div className="columns has-text-centered">
               <div className="column">
                 <figure>
@@ -87,31 +87,30 @@ function EventShow() {
                 </div>
               </div>
             </div>
+          </section>
 
-            <div className="container has-background-info">
+          <section className="section has-background-dark">
+            <div className="map-show container has-background-white">
               <div className="columns has-text-centered">
-                <div className="column">
-                  <div className="container pl-3">
-                    <Map
-                      initialViewState={{
-                        longitude: eventData[0].venue.longitude,
-                        latitude: eventData[0].venue.latitude,
-                        zoom: 14,
-                      }}
-                      style={{ width: 600, height: 400 }}
-                      mapStyle="mapbox://styles/mapbox/streets-v9"
-                      mapboxAccessToken={MAPBOX_TOKEN}
-                    >
-                      <Marker
-                        longitude={eventData[0].venue.longitude}
-                        latitude={eventData[0].venue.latitude}
-                        color="red"
-                      />
-                    </Map>
-                  </div>
+                <div className="column is-6">
+                  <Map
+                    initialViewState={{
+                      longitude: eventData[0].venue.longitude,
+                      latitude: eventData[0].venue.latitude,
+                      zoom: 14,
+                    }}
+                    style={{ width: 600, height: 400 }}
+                    mapStyle="mapbox://styles/mapbox/streets-v9"
+                    mapboxAccessToken={MAPBOX_TOKEN}
+                  >
+                    <Marker
+                      longitude={eventData[0].venue.longitude}
+                      latitude={eventData[0].venue.latitude}
+                      color="red"
+                    />
+                  </Map>
                 </div>
-
-                <div className="column">
+                <div className="column is-6">
                   <h3 className="title">Venue:</h3>
                   <p>{eventData[0].venue.name}</p>
                   <p>{eventData[0].venue.address}</p>
@@ -120,10 +119,10 @@ function EventShow() {
                 </div>
               </div>
             </div>
-          </>
-        )}
-      </section>
-    </>
+          </section>
+        </>
+      )}
+    </section>
   );
 }
 
