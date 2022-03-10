@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAllEvents } from '../lib/api';
+import { getAllEvents, getAllEventsWithEventCode } from '../lib/api';
 
 import EventCard from './EventCard';
 
@@ -24,7 +24,9 @@ const EventsIndex = ({ event, date, location }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    getData();
+    if (formData.eventcode === '') {
+      getData();
+    }
   };
 
   const handleChange = (e) => {
@@ -38,7 +40,7 @@ const EventsIndex = ({ event, date, location }) => {
     try {
       const {
         data: { results },
-      } = await getAllEvents({ ...formData });
+      } = await getAllEventsWithEventCode({ ...formData });
       setEvents(results);
       console.log(results);
     } catch (err) {
