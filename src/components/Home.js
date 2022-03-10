@@ -44,60 +44,62 @@ function Home() {
   console.log('Special Events:', specialEvents);
 
   return (
-    <section className='hero is-fullheight-with-navbar'>
-      <div className='hero-body'>
+    <>
+      <section className='hero'>
+        <div className='hero-body'>
+          <div className='container'>
+            <h1 className='title has-text-centered is-primary'>EventZ 4 U</h1>
+          </div>
+        </div>
         <div className='container'>
-          <h1 className='title has-text-centered'>Events Home Page</h1>
-        </div>
-      </div>
-      <div className='box container'>
-        <div className='columns'>
-          <div className='column'>
-            <input
-              type='text'
-              placeholder='Search for event'
-              name='event'
-              value={userSearch.event}
-              onChange={handleSearchChange}
-              className='input is-primary is-rounded'
-            />
+          <div className='columns'>
+            <div className='column'>
+              <input
+                type='text'
+                placeholder='Search for event'
+                name='event'
+                value={userSearch.event}
+                onChange={handleSearchChange}
+                className='input is-primary is-rounded'
+              />
+            </div>
           </div>
-        </div>
-        <div className='columns'>
-          <div className='column'>
-            <input
-              type='date'
-              name='date'
-              value={userSearch.date}
-              onChange={handleSearchChange}
-              className='input is-primary is-rounded'
-            />
+          <div className='columns'>
+            <div className='column'>
+              <input
+                type='date'
+                name='date'
+                value={userSearch.date}
+                onChange={handleSearchChange}
+                className='input is-primary is-rounded'
+              />
+            </div>
+            <div className='column'>
+              <input
+                type='search'
+                placeholder='Location'
+                name='location'
+                value={userSearch.location}
+                onChange={handleSearchChange}
+                className='input is-primary is-rounded'
+              />
+            </div>
           </div>
-          <div className='column'>
-            <input
-              type='search'
-              placeholder='Location'
-              name='location'
-              value={userSearch.location}
-              onChange={handleSearchChange}
-              className='input is-primary is-rounded'
-            />
-          </div>
-        </div>
 
-        <div className='columns is-centered'>
-          <div className='column is-half is-centered'>
-            <button
-              className='button is-primary is-rounded'
-              onClick={handleSubmit}
-            >
-              Search
-            </button>
+          <div className='columns is-centered'>
+            <div className='is-half is-centered'>
+              <button
+                className='button is-primary is-rounded'
+                onClick={handleSubmit}
+              >
+                Search
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className='container'>
+      <section className='container'>
         <h2 className='title has-text-centered'>Featured Events</h2>
         <div className='columns'>
           {!specialEvents ? (
@@ -108,8 +110,8 @@ function Home() {
             ))
           )}
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
