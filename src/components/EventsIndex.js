@@ -14,8 +14,8 @@ const EventsIndex = ({ event, date, location }) => {
   const [formData, setFormData] = React.useState({
     keyword: '',
     minDate: today,
-    maxDate: nextYear,
     eventcode: '',
+    limit: 20,
   });
 
   console.log('Evennt; ', event);
@@ -24,14 +24,18 @@ const EventsIndex = ({ event, date, location }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.eventcode === '') {
-      getData();
-    }
+    getData();
   };
 
   const handleChange = (e) => {
     e.preventDefault();
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const increaseLimit = (e) => {
+    e.preventDefault();
+    setFormData({ ...formData, limit: formData.limit + 20 });
+    console.log('form data 1st', formData);
   };
 
   console.log('form data', formData);
@@ -40,7 +44,7 @@ const EventsIndex = ({ event, date, location }) => {
     try {
       const {
         data: { results },
-      } = await getAllEventsWithEventCode({ ...formData });
+      } = await getAllEvents({ ...formData });
       setEvents(results);
       console.log(results);
     } catch (err) {
@@ -50,7 +54,7 @@ const EventsIndex = ({ event, date, location }) => {
 
   React.useEffect(() => {
     getData();
-  }, []);
+  }, [formData.limit]);
 
   return (
     <>
@@ -75,15 +79,6 @@ const EventsIndex = ({ event, date, location }) => {
               name='minDate'
               onChange={handleChange}
               value={formData.minDate}
-            />
-            <label className='label'>Max Date</label>
-
-            <input
-              className='input'
-              type='date'
-              name='maxDate'
-              onChange={handleChange}
-              value={formData.maxDate}
             />
             <select name='eventcode' id='evenType' onChange={handleChange}>
               <option name='eventcode' value=''>
@@ -146,6 +141,7 @@ const EventsIndex = ({ event, date, location }) => {
           )}
         </div>
       </div>
+      <button onClick={increaseLimit}>Load more events</button>
     </>
   );
 };
