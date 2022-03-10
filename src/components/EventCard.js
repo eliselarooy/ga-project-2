@@ -9,7 +9,7 @@ const EventCard = ({
   venue: { town },
 }) => {
   return (
-    <div className='column is-one-quarter-desktop is-one-third-tablet is-one-mobile'>
+    <div className='column is-one-quarter-desktop is-half-tablet is-one-mobile'>
       <Link to={`/events/${uniquelistingidentifier}`}>
         <div className='card'>
           <div className='card-header'>

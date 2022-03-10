@@ -1,17 +1,20 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { getSingleEvent } from '../lib/api';
 import Map, { Marker } from 'react-map-gl';
-
+import { useNavigate } from 'react-router-dom';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 function EventShow() {
   const { eventId } = useParams();
   const [eventData, setEventData] = React.useState();
-  console.log('Event ID: ', eventId);
+  const navigate = useNavigate();
 
   const MAPBOX_TOKEN = `${process.env.REACT_APP_ACCESS_TOKEN}`;
-  console.log('MAPBOX_TOKEN: ', MAPBOX_TOKEN);
+
+  function handleReturn() {
+    navigate(-1);
+  }
 
   React.useEffect(() => {
     async function getEventData() {
@@ -34,6 +37,14 @@ function EventShow() {
         <p>Loading...</p>
       ) : (
         <>
+          <div className='container is-fluid has-text-right mt-2'>
+            <button
+              className='button is-primary is-rounded'
+              onClick={handleReturn}
+            >
+              Return to Search
+            </button>
+          </div>
           <section className='section has-background-white'>
             <div className='columns has-text-centered'>
               <div className='column'>
@@ -72,7 +83,7 @@ function EventShow() {
           <section className='section has-background-dark'>
             <div className='map-show container has-background-white'>
               <div className='columns has-text-centered'>
-                <div className='column is-6'>
+                <div className='column is-6 m-5'>
                   <Map
                     initialViewState={{
                       longitude: eventData[0].venue.longitude,
@@ -90,12 +101,16 @@ function EventShow() {
                     />
                   </Map>
                 </div>
-                <div className='column is-6'>
-                  <h3 className='title'>Venue:</h3>
-                  <p>{eventData[0].venue.name}</p>
-                  <p>{eventData[0].venue.address}</p>
-                  <p>{eventData[0].venue.town}</p>
-                  <p>{eventData[0].venue.postcode}</p>
+                <div className='column is-6 mt-6'>
+                  <h3 className='title'>📍 {eventData[0].venue.name}</h3>
+                  <p className='subtitle'>{eventData[0].venue.address}</p>
+                  <p
+                    className='
+                    subtitle'
+                  >
+                    {eventData[0].venue.town}
+                  </p>
+                  <p className='subtitle'>{eventData[0].venue.postcode}</p>
                 </div>
               </div>
             </div>

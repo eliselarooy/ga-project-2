@@ -48,7 +48,9 @@ function Home() {
       <section className='hero'>
         <div className='hero-body'>
           <div className='container'>
-            <h1 className='title has-text-centered is-primary'>EventZ 4 U</h1>
+            <h1 className='title has-text-centered has-text-white'>
+              Plan Your Party
+            </h1>
           </div>
         </div>
         <div className='container'>
