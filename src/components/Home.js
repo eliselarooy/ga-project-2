@@ -44,7 +44,7 @@ function Home() {
   console.log('Special Events:', specialEvents);
 
   return (
-    <section className='hero is-fullheight-with-navbar is-primary'>
+    <section className='hero is-fullheight-with-navbar'>
       <div className='hero-body'>
         <div className='container'>
           <h1 className='title has-text-centered'>Events Home Page</h1>
