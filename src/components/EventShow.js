@@ -32,7 +32,7 @@ function EventShow() {
   }, []);
 
   return (
-    <section className='section'>
+    <>
       {!eventData ? (
         <p>Loading...</p>
       ) : (
@@ -137,7 +137,7 @@ function EventShow() {
           </section>
         </>
       )}
-    </section>
+    </>
   );
 }
 
