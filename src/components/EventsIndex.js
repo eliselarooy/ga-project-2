@@ -161,13 +161,21 @@ const EventsIndex = ({ event, date, location }) => {
             ) : events.length === 0 ? (
               <p>No results matching that search</p>
             ) : (
-              events.map((event) => <EventCard key={event.id} {...event} />)
+              <>
+                {events.map((event) => (
+                  <EventCard key={event.id} {...event} />
+                ))}
+                {events.length < 100 ? (
+                  <div className='container has-text-centered'>
+                    <button className='button' onClick={increaseLimit}>
+                      Load more events
+                    </button>
+                  </div>
+                ) : (
+                  ''
+                )}
+              </>
             )}
-            <div className='container has-text-centered'>
-              <button className='button' onClick={increaseLimit}>
-                Load more events
-              </button>
-            </div>
           </div>
         </div>
       </div>
