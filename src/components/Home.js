@@ -89,7 +89,7 @@ function Home() {
           </div>
 
           <div className='columns is-centered'>
-            <div className='is-half is-centered'>
+            <div className='is-half has-text-centered'>
               <button
                 className='button is-primary is-rounded'
                 onClick={handleSubmit}
@@ -101,7 +101,7 @@ function Home() {
         </div>
       </section>
 
-      <section className='container'>
+      <section className='container mt-6'>
         <h2 className='title has-text-centered'>Featured Events</h2>
         <div className='columns'>
           {!specialEvents ? (
