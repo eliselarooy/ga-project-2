@@ -2,15 +2,10 @@ import axios from 'axios';
 
 const baseUrl = `https://www.skiddle.com/api/v1/events/?api_key=${process.env.REACT_APP_API_KEY}`;
 
-export const getAllEventsWithEventCode = ({
-  keyword,
-  minDate,
-  maxDate,
-  eventcode,
-}) => {
+export const getAllEventsWithEventCode = ({ keyword, minDate, eventcode }) => {
   console.log('Event code: ', eventcode);
   return axios.get(
-    `${baseUrl}&keyword=${keyword}&minDate=${minDate}&maxDate=${maxDate}&eventcode=${eventcode}`
+    `${baseUrl}&keyword=${keyword}&minDate=${minDate}&eventcode=${eventcode}`
   );
 };
 
