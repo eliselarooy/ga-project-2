@@ -1,22 +1,20 @@
 import React from 'react';
 import { getAllEvents, getAllEventsWithEventCode } from '../lib/api';
+import { useLocation } from 'react-router-dom';
 
 import EventCard from './EventCard';
 
 const today = new Date().toISOString().slice(0, 10);
 
-const EventsIndex = ({ event, date, location }) => {
+const EventsIndex = () => {
   const [events, setEvents] = React.useState(null);
+  const location = useLocation();
   const [formData, setFormData] = React.useState({
-    keyword: '',
-    minDate: today,
+    keyword: location.state?.event || '',
+    minDate: location.state?.date || today,
     eventcode: '',
     limit: 20,
   });
-
-  console.log('Evennt; ', event);
-  console.log('Date; ', date);
-  console.log('Location; ', location);
 
   const handleSubmit = (e) => {
     e.preventDefault();

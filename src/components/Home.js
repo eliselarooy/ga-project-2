@@ -7,7 +7,7 @@ const today = new Date().toISOString().slice(0, 10);
 
 const initialUserSearch = {
   event: '',
-  date: today,
+  date: '',
   location: '',
 };
 
@@ -23,7 +23,7 @@ function Home() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log('userSearch: ', userSearch);
-    navigate('/events', { ...userSearch });
+    navigate('/events', { state: userSearch });
   }
 
   React.useEffect(() => {
@@ -55,33 +55,27 @@ function Home() {
         </div>
         <div className='container'>
           <div className='columns'>
-            <div className='column'>
-              <input
-                type='text'
-                placeholder='Search for event'
-                name='event'
-                value={userSearch.event}
-                onChange={handleSearchChange}
-                className='input is-primary is-rounded'
-              />
+            <div className='column is-6'>
+              <div className='control has-icons-left'>
+                <input
+                  type='text'
+                  placeholder='Search for event'
+                  name='event'
+                  value={userSearch.event}
+                  onChange={handleSearchChange}
+                  className='input is-primary is-rounded'
+                />
+                <span className='icon is-left'>
+                  <i className='fas fa-search'></i>
+                </span>
+              </div>
             </div>
-          </div>
-          <div className='columns'>
-            <div className='column'>
+
+            <div className='column is-6'>
               <input
                 type='date'
                 name='date'
                 value={userSearch.date}
-                onChange={handleSearchChange}
-                className='input is-primary is-rounded'
-              />
-            </div>
-            <div className='column'>
-              <input
-                type='search'
-                placeholder='Location'
-                name='location'
-                value={userSearch.location}
                 onChange={handleSearchChange}
                 className='input is-primary is-rounded'
               />
