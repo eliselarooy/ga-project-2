@@ -33,7 +33,6 @@ function EventShow() {
 
   return (
     <>
-      {' '}
       {!eventData ? (
         <p>Loading...</p>
       ) : (

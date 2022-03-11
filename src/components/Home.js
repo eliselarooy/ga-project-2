@@ -46,10 +46,10 @@ function Home() {
   return (
     <>
       <section className='hero'>
-        <div className='hero-body'>
+        <div className='hero-body is-flex is-align-items-center'>
           <div className='container'>
             <h1 className='title has-text-centered has-text-white'>
-              Plan Your Party
+              Great Night Out
             </h1>
           </div>
         </div>
