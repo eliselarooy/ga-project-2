@@ -101,7 +101,9 @@ function EventShow() {
           </section>
 
           <section className="section has-background-light">
+
             <div className="map-show  has-background-white">
+
               <div className="columns has-text-centered">
                 <div className="column pl-5">
                   <Map
