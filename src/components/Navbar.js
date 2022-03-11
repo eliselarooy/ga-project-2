@@ -15,13 +15,13 @@ const Navbar = () => {
   return (
     <header>
       <nav className='navbar is-primary'>
-        <div className='container'>
+        <div className='container  has-text-weight-bold'>
           <div className='navbar-brand'>
             <Link to='/' className='navbar-item'>
-              Great Night Out
-            </Link>
-            <Link to='/' className='navbar-item'>
-              Home
+              <span className='icon'>
+                <i className='fas fa-meteor'></i>
+              </span>
+              <span> Great Night Out</span>
             </Link>
             <Link to='/events' className='navbar-item' {...userSearch}>
               Events
