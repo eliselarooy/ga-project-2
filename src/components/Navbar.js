@@ -14,13 +14,13 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className='navbar is-primary'>
-        <div className='container'>
-          <div className='navbar-brand'>
-            <Link to='/' className='navbar-item'>
+      <nav className="navbar is-primary">
+        <div className="container">
+          <div className="navbar-brand">
+            <Link to="/" className="navbar-item">
               Home
             </Link>
-            <Link to='/events' className='navbar-item' {...userSearch}>
+            <Link to="/events" className="navbar-item" {...userSearch}>
               Events
             </Link>
           </div>
