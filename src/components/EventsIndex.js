@@ -53,7 +53,7 @@ const EventsIndex = ({ event, date, location }) => {
   }, [formData.limit]);
 
   return (
-    <div className="container mt-6">
+    <div className="container mt-6 mb-6">
       <div className="columns">
         <div className="column notification">
           <nav className="menu">

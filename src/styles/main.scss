@@ -2,11 +2,10 @@
 
 .card {
   height: 100%;
-  border: 2px solid #00d1b2;
 }
 
 .card-header {
-  height: 15%;
+  height: 20%;
 }
 
 .card-image {
@@ -23,16 +22,17 @@
 
 .show-image {
   border-radius: 8px;
-  border: 2px solid #00d1b2;
   margin: 0 0 0 40px;
   height: 100%;
 }
 
-.container .has-background-info {
-  border: 2px solid #00d1b2;
+.map-show {
+  border-radius: 8px;
 }
 
-.map-show {
-  border: 2px solid #00d1b2;
-  border-radius: 8px;
+.address {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
