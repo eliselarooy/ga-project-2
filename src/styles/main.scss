@@ -37,13 +37,18 @@
   align-items: center;
 }
 
-
 .login {
   height: 70vh;
 }
 
-  
-  .main-title {
+.main-title {
   font-family: 'Sora', sans-serif;
+}
 
+.card-header h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

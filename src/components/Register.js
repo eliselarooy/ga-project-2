@@ -65,7 +65,7 @@ function Register() {
               </div>
             </div>
             <div className='field'>
-              <label className='label'>Event type</label>
+              <label className='label'>Favourite Event Type</label>
               <select
                 className='input'
                 name='eventcode'

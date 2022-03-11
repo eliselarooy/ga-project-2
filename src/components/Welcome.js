@@ -1,13 +1,11 @@
 import React from 'react';
 import { getAllRecommended } from '../lib/api';
 import EventCard from './EventCard';
-const today = new Date().toISOString().slice(0, 10);
 
 function Welcome() {
   const [recommendedEvents, setRecommendedEvents] = React.useState(null);
   const storedLoginDetails = localStorage.getItem('loginDetails');
   const loginDetails = JSON.parse(storedLoginDetails);
-  console.log(loginDetails.eventcode);
 
   React.useEffect(() => {
     const getEvents = async () => {
