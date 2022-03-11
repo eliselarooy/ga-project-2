@@ -18,7 +18,7 @@ function Register() {
   }
 
   function handleSubmit(e) {
-    localStorage.setItem('loginDetails', userInput);
+    localStorage.setItem('loginDetails', JSON.stringify(userInput));
     navigate('/login');
   }
 

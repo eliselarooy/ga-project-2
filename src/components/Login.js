@@ -16,7 +16,16 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    navigate('/welcome');
+    const storedLoginDetails = localStorage.getItem('loginDetails');
+    const loginDetails = JSON.parse(storedLoginDetails);
+    if (
+      loginData.email === loginDetails.email &&
+      loginData.password === loginDetails.password
+    ) {
+      navigate('/welcome');
+    } else {
+      window.alert('Username or Password do not match. Try again!');
+    }
   }
   return (
     <section className='section'>
