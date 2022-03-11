@@ -20,11 +20,13 @@ function Login() {
     const loginDetails = JSON.parse(storedLoginDetails);
     if (
       loginData.email === loginDetails.email &&
-      loginData.password === loginDetails.password
+      loginData.password === loginDetails.password &&
+      loginDetails.email !== '' &&
+      loginDetails.password !== ''
     ) {
       navigate('/welcome');
     } else {
-      window.alert('Username or Password do not match. Try again!');
+      window.alert('Email or Password do not match. Try again!');
     }
   }
   return (
