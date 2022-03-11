@@ -49,7 +49,10 @@ function Home() {
         <div className="hero-body is-flex is-align-items-center">
           <div className="container">
             <h1 className="main-title title has-text-centered has-text-white is-size-2">
-              Great Night Out
+              <span className="icon">
+                <i className="fas fa-meteor"></i>
+              </span>
+              <span> Great Night Out</span>
             </h1>
           </div>
         </div>
