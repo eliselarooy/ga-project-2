@@ -15,6 +15,10 @@ export const getAllEvents = ({ keyword, minDate, limit }) => {
   );
 };
 
+export const getAllRecommended = (eventcode) => {
+  return axios.get(`${baseUrl}&eventcode=${eventcode}&limit=4`);
+};
+
 export const getSpecialEvents = () => {
   return axios.get(`${baseUrl}&specialFeatured=1&limit=4`);
 };

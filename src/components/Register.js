@@ -1,12 +1,11 @@
 import React from 'react';
-import { registerUser } from '../lib/api';
 import { useNavigate } from 'react-router-dom';
 
 const initialUserInput = {
   username: '',
   email: '',
   password: '',
-  passwordConfirmation: '',
+  eventcode: '',
 };
 
 function Register() {
@@ -23,7 +22,7 @@ function Register() {
   }
 
   return (
-    <section className='section'>
+    <section className='section login'>
       <div className='container'>
         <div className='columns'>
           <form className='column is-half is-offset-one-quarter box'>
@@ -65,17 +64,50 @@ function Register() {
               </div>
             </div>
             <div className='field'>
-              <label className='label'>Password Confirmation</label>
-              <div className='control'>
-                <input
-                  type='password'
-                  className='input'
-                  placeholder='Password Confirmation'
-                  name='passwordConfirmation'
-                  onChange={handleChange}
-                  value={userInput.passwordConfirmation}
-                />
-              </div>
+              <label className='label'>Event type</label>
+              <select
+                className='input'
+                name='eventcode'
+                id='eventType'
+                onChange={handleChange}
+              >
+                <option name='eventcode' value='FEST'>
+                  FESTIVAL
+                </option>
+                <option name='eventcode' value='LIVE'>
+                  LIVE MUSIC
+                </option>
+                <option name='eventcode' value='CLUB'>
+                  CLUBBING/DANCE MUSIC
+                </option>
+                <option name='eventcode' value='DATE'>
+                  DATING
+                </option>
+                <option name='eventcode' value='THEATRE'>
+                  THEATRE
+                </option>
+                <option name='eventcode' value='COMEDY'>
+                  COMEDY
+                </option>
+                <option name='eventcode' value='EXHIB'>
+                  EXHIBITION
+                </option>
+                <option name='eventcode' value='KIDS'>
+                  KIDS/FAMILY
+                </option>
+                <option name='eventcode' value='BARPUB'>
+                  BAR/PUB
+                </option>
+                <option name='eventcode' value='LGB'>
+                  GAY/LESBIAN
+                </option>
+                <option name='eventcode' value='SPORT'>
+                  SPORT
+                </option>
+                <option name='eventcode' value='ARTS'>
+                  THE ARTS
+                </option>
+              </select>
             </div>
             <div className='field'>
               <button

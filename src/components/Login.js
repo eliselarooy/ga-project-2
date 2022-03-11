@@ -28,7 +28,7 @@ function Login() {
     }
   }
   return (
-    <section className='section'>
+    <section className='section login'>
       <div className='container'>
         <div className='columns'>
           <form className='box column is-half is-offset-one-quarter'>

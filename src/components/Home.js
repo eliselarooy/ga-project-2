@@ -3,8 +3,6 @@ import { getSpecialEvents } from '../lib/api';
 import EventCard from './EventCard';
 import { useNavigate } from 'react-router-dom';
 
-const today = new Date().toISOString().slice(0, 10);
-
 const initialUserSearch = {
   event: '',
   date: '',
