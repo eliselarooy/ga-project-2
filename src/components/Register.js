@@ -5,7 +5,7 @@ const initialUserInput = {
   username: '',
   email: '',
   password: '',
-  eventcode: '',
+  eventcode: 'FEST',
 };
 
 function Register() {
@@ -18,6 +18,7 @@ function Register() {
 
   function handleSubmit(e) {
     localStorage.setItem('loginDetails', JSON.stringify(userInput));
+    console.log('USER INPUT: ', userInput);
     navigate('/login');
   }
 

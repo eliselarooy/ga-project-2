@@ -7,6 +7,7 @@ function Welcome() {
   const [recommendedEvents, setRecommendedEvents] = React.useState(null);
   const storedLoginDetails = localStorage.getItem('loginDetails');
   const loginDetails = JSON.parse(storedLoginDetails);
+  console.log(loginDetails.eventcode);
 
   React.useEffect(() => {
     const getEvents = async () => {
