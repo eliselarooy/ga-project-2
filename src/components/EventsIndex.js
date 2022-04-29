@@ -29,10 +29,7 @@ const EventsIndex = () => {
   const increaseLimit = (e) => {
     e.preventDefault();
     setFormData({ ...formData, limit: formData.limit + 20 });
-    console.log('form data 1st', formData);
   };
-
-  console.log('form data', formData);
 
   const getData = async () => {
     try {
@@ -58,91 +55,91 @@ const EventsIndex = () => {
 
   console.log('Events: ', events);
   return (
-    <div className='container mt-6 mb-6'>
-      <div className='columns'>
-        <div className='column notification'>
-          <nav className='menu'>
-            <p className='menu-heading title is-4'>Filter search</p>
-            <div className='menu-block'>
-              <div className='field block'>
-                <label className='label'>Search keyword</label>
-                <div className='control has-icons-left'>
+    <div className="container mt-6 mb-6">
+      <div className="columns">
+        <div className="column notification">
+          <nav className="menu">
+            <p className="menu-heading title is-4">Filter search</p>
+            <div className="menu-block">
+              <div className="field block">
+                <label className="label">Search keyword</label>
+                <div className="control has-icons-left">
                   <input
-                    className='input'
-                    type='text'
-                    placeholder='Search'
-                    name='keyword'
+                    className="input"
+                    type="text"
+                    placeholder="Search"
+                    name="keyword"
                     onChange={handleChange}
                     value={formData.keyword}
                   />
-                  <span className='icon is-left'>
-                    <i className='fas fa-search'></i>
+                  <span className="icon is-left">
+                    <i className="fas fa-search"></i>
                   </span>
                 </div>
               </div>
-              <div className='field block'>
-                <label className='label'>Date</label>
+              <div className="field block">
+                <label className="label">Date</label>
                 <input
-                  className='input'
-                  type='date'
-                  name='minDate'
+                  className="input"
+                  type="date"
+                  name="minDate"
                   onChange={handleChange}
                   value={formData.minDate}
                 />
               </div>
-              <div className='field block '>
-                <label className='label'>Event type</label>
+              <div className="field block ">
+                <label className="label">Event type</label>
                 <select
-                  className='input'
-                  name='eventcode'
-                  id='eventType'
+                  className="input"
+                  name="eventcode"
+                  id="eventType"
                   onChange={handleChange}
                 >
-                  <option name='eventcode' value=''>
+                  <option name="eventcode" value="">
                     ALL
                   </option>
-                  <option name='eventcode' value='FEST'>
+                  <option name="eventcode" value="FEST">
                     FESTIVAL
                   </option>
-                  <option name='eventcode' value='LIVE'>
+                  <option name="eventcode" value="LIVE">
                     LIVE MUSIC
                   </option>
-                  <option name='eventcode' value='CLUB'>
+                  <option name="eventcode" value="CLUB">
                     CLUBBING/DANCE MUSIC
                   </option>
-                  <option name='eventcode' value='DATE'>
+                  <option name="eventcode" value="DATE">
                     DATING
                   </option>
-                  <option name='eventcode' value='THEATRE'>
+                  <option name="eventcode" value="THEATRE">
                     THEATRE
                   </option>
-                  <option name='eventcode' value='COMEDY'>
+                  <option name="eventcode" value="COMEDY">
                     COMEDY
                   </option>
-                  <option name='eventcode' value='EXHIB'>
+                  <option name="eventcode" value="EXHIB">
                     EXHIBITION
                   </option>
-                  <option name='eventcode' value='KIDS'>
+                  <option name="eventcode" value="KIDS">
                     KIDS/FAMILY
                   </option>
-                  <option name='eventcode' value='BARPUB'>
+                  <option name="eventcode" value="BARPUB">
                     BAR/PUB
                   </option>
-                  <option name='eventcode' value='LGB'>
+                  <option name="eventcode" value="LGB">
                     GAY/LESBIAN
                   </option>
-                  <option name='eventcode' value='SPORT'>
+                  <option name="eventcode" value="SPORT">
                     SPORT
                   </option>
-                  <option name='eventcode' value='ARTS'>
+                  <option name="eventcode" value="ARTS">
                     THE ARTS
                   </option>
                 </select>
               </div>
-              <div className='field block'>
+              <div className="field block">
                 <button
-                  type='submit'
-                  className='button is-fullwidth'
+                  type="submit"
+                  className="button is-fullwidth"
                   onClick={handleSubmit}
                 >
                   Update results
@@ -151,9 +148,9 @@ const EventsIndex = () => {
             </div>
           </nav>
         </div>
-        <div className='column'></div>
-        <div className='container'>
-          <div className='columns is-multiline'>
+        <div className="column"></div>
+        <div className="container">
+          <div className="columns is-multiline">
             {!events ? (
               <p>Loading</p>
             ) : events.length === 0 ? (
@@ -164,8 +161,8 @@ const EventsIndex = () => {
                   <EventCard key={event.id} {...event} />
                 ))}
                 {events.length < 100 ? (
-                  <div className='container has-text-centered'>
-                    <button className='button' onClick={increaseLimit}>
+                  <div className="container has-text-centered">
+                    <button className="button" onClick={increaseLimit}>
                       Load more events
                     </button>
                   </div>
