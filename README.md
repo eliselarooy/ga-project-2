@@ -5,9 +5,9 @@
 ## Overview
 _Great Night Out_ is an events app built using React during a two-day hackathon as part of the General Assembly course. The app uses two public APIs (Skiddle events and Mapbox). 
 
-> Pair-coded with [Edward Foulds](https://github.com/FouldsEJ)\
-> Duration: 48 hours\
-> Technologies: HTML, SCSS/Bulma, JavaScript, React, Axios, Postman
+> **Pair-coded** with [Edward Foulds](https://github.com/FouldsEJ)\
+> **Duration:** 48 hours\
+> **Technologies:** HTML, SCSS/Bulma, JavaScript, React, Axios, Postman
 
 The app is deployed on Netlify and available here &rarr; https://greatnightout.netlify.app/ \
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5f699954-3889-4297-a731-2abc199fbc54/deploy-status)](https://app.netlify.com/sites/greatnightout/deploys)
