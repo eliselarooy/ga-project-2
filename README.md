@@ -1,5 +1,7 @@
 # Great Night Out - GA Project 2
 
+<img src="./assets/homepage.png" alt="homepage" width="600px"/>
+
 ## Overview
 Great Night Out is an events app built using React during a two-day hackathon as part of the General Assembly course. The app uses two public APIs (Skiddle events and Mapbox). 
 
@@ -28,6 +30,8 @@ We also used the event details endpoint https://www.skiddle.com/api/v1/events/12
 
 ### Planning
 Our MVP was to fetch data from the API, display it on the frontend and implement some searching or filtering functionality. Having noticed that the data returned from the event details endpoint included longitude and latitude for the event venue, we also discussed a stretch goal of integrating maps. Here is our wireframe: 
+
+![wireframe](./assets/wireframe.png)
 
 ### Functionality
 I focussed on the EventsIndex component and implemented the search and filter functionality. This involved using multiple search parameters and a couple of different API calls depending on whether the user had selected an eventcode. 
