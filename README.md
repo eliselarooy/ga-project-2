@@ -3,7 +3,7 @@
 ![homepage](./assets/homepage.png)
 
 ## Overview
-Great Night Out is an events app built using React during a two-day hackathon as part of the General Assembly course. The app uses two public APIs (Skiddle events and Mapbox). 
+_Great Night Out_ is an events app built using React during a two-day hackathon as part of the General Assembly course. The app uses two public APIs (Skiddle events and Mapbox). 
 
 > Pair-coded with [Edward Foulds](https://github.com/FouldsEJ)\
 > Duration: 48 hours\
