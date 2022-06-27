@@ -1,20 +1,52 @@
+<div id="top"></div>
+
 # Great Night Out - GA Project 2
 
 ![homepage](./assets/homepage.png)
 
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#approach">Approach</a>
+      <ul>
+        <li><a href="#skiddle-api">Skiddle API</a></li>
+        <li><a href="#planning">Planning</a></li>
+        <li><a href="#functionality">Functionality</a></li>
+        <li><a href="#styling">Styling</a></li>
+      </ul>
+    </li>
+    <li><a href="#bugs">Bugs</a></li>
+    <li><a href="#wins-and-wishes">Wins and Wishes</a></li>
+    <li><a href="#key-learnings">Key Learnings</a></li>
+  </ol>
+</details>
+
+<!-- OVERVIEW -->
 ## Overview
 _Great Night Out_ is an events app built using React during a two-day hackathon as part of the General Assembly course. The app uses two public APIs (Skiddle events and Mapbox). 
 
-> **Pair-coded** with [Edward Foulds](https://github.com/FouldsEJ)\
-> **Duration:** 48 hours\
-> **Technologies:** HTML, SCSS/Bulma, JavaScript, React, Axios, Postman
+* **Pair-coded** with [Edward Foulds](https://github.com/FouldsEJ)
+* **Duration:** 48 hours
+* **Technologies:** HTML, SCSS/Bulma, JavaScript, React, Axios, Postman
 
+<!-- INSTALLATION -->
+## Installation
 The app is deployed on Netlify and available here &rarr; https://greatnightout.netlify.app/ \
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5f699954-3889-4297-a731-2abc199fbc54/deploy-status)](https://app.netlify.com/sites/greatnightout/deploys)
 
+To run locally:
+1. Clone this repository
+2. Run `npm install` to install npm packages
+3. Run `npm start` and open http://localhost:3000 in the browser
+
+<!-- THE BRIEF -->
 ## The Brief
 Build a React application that consumes a public API. The app must include a router, have several components and be deployed online. 
 
+<!-- APPROACH -->
 ## Approach
 ### Skiddle API
 After successfully testing some endpoints in Postman, we decided to build an events site using the Skiddle API (https://github.com/Skiddle/web-api). 
@@ -93,16 +125,20 @@ const EventsIndex = () => {
 ### Styling
 We used the Bulma CSS framework for styling as it enabled us to quickly create a clean and responsive website. 
 
+<!-- BUGS -->
 ## Bugs 
 On the events index page, the ‘Load more events’ button still appears even if there are less than 20 results returned from a search. 
 
 We also encountered an issue during deployment where the map appears as a grey box. It is a known bug with using Mapbox with Netlify and we have not found a workaround yet.
 
+<!-- WINS AND WISHES -->
 ## Wins and Wishes
 This was my first pair-coded project and it was a positive experience collaborating with Ed. We set ourselves ambitious stretch goals, which with good teamwork we were able to achieve within a short time frame.
 
 I would like to improve the ‘Load more events’ button to use _offset_ in conjunction with _limit_ to allow users to load more than 100 events and add an additional feature to have a map view on the events index page. 
 
+<!-- KEY LEARNINGS -->
 ## Key Learnings
 This was my first experience building a React app and I learned about _state_, _useEffect_ and passing _props_ between components. Furthermore, this provided practice working together on a single repo using Git branching. 
 
+<p align="right">(<a href="#top">back to top</a>)</p>
